@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -7,6 +6,7 @@ import {
   removeSelectedProduct,
   addProductToCart,
 } from '../redux/actions/productsActions'
+import { getProductDetailsById } from '../sevices/store.service'
 const ProductDetails = () => {
   const { productId } = useParams()
   let product = useSelector((state) => state.product)
@@ -14,11 +14,8 @@ const ProductDetails = () => {
   const dispatch = useDispatch()
 
   const fetchProductDetail = async (id) => {
-    const response = await axios
-      .get(`https://fakestoreapi.com/products/${id}`)
-      .catch((err) => {
-        console.log('Err: ', err)
-      })
+    const response = await getProductDetailsById(id);
+    debugger
     dispatch(selectedProduct(response.data))
   }
 
