@@ -25,3 +25,15 @@ export const getProductDetailsById = async (id) => {
         console.log(error)
     }
 }
+
+export const sortProducts = async (value) => {
+    try {
+        const response = await storeInstance({
+            url: `/products?sort=${value}`,
+            method: "GET",
+        });
+        return response;
+    } catch (error) {
+        console.log(error)
+    }
+}

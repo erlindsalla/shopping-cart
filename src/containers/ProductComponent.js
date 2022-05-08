@@ -9,9 +9,7 @@ const ProductComponent = () => {
   const renderList = products.map((product) => {
     const { id, title, image, price, category } = product
     const deleteProduct = (id) => {
-      console.log(id)
       dispatch(removeProductFromList(id))
-      //call delete product action here
     }
     return (
       <div className='four wide column' key={id}>

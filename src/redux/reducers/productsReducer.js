@@ -17,7 +17,6 @@ export const productsReducer = (state = intialState, { type, payload }) => {
 }
 
 export const selectedProductsReducer = (state = {}, { type, payload }) => {
-  console.log(type)
   switch (type) {
     case ActionTypes.SELECTED_PRODUCT:
       return { ...state, ...payload }
@@ -32,8 +31,6 @@ export const cartReducer = (state = intialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.ADD_PRODUCT_TO_CART:
       const test = { ...state, cart: [...state.cart, payload] }
-
-      debugger
       return { ...state, cart: [...state.cart, payload] }
     default:
       return state

@@ -15,7 +15,6 @@ const ProductDetails = () => {
 
   const fetchProductDetail = async (id) => {
     const response = await getProductDetailsById(id);
-    debugger
     dispatch(selectedProduct(response.data))
   }
 

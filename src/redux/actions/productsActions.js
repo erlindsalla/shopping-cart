@@ -20,7 +20,6 @@ export const removeSelectedProduct = () => {
 }
 
 export const removeProductFromList = (id) => {
-  debugger
   return {
     type: ActionTypes.REMOVE_PRODUCT_FROM_LIST,
     payload: id,
@@ -28,7 +27,6 @@ export const removeProductFromList = (id) => {
 }
 
 export const addProductToCart = (product) => {
-  debugger
   return {
     type: ActionTypes.ADD_PRODUCT_TO_CART,
     payload: product,
