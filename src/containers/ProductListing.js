@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useMemo } from 'react'
+import React, { useEffect, useCallback, useMemo, useState } from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { setProducts } from '../redux/actions/productsActions'
@@ -6,7 +6,8 @@ import ProductComponent from './ProductComponent'
 import { getAllProducts, sortProducts } from '../sevices/store.service'
 
 const ProductPage = () => {
-  const products = useSelector((state) => state.allProducts.products)
+  const [sort, setSorting] = useState("aesc");
+
   const dispatch = useDispatch()
   const fetchProducts = async () => {
     const response = await getAllProducts()
@@ -18,14 +19,15 @@ const ProductPage = () => {
   }, [])
 
   const handleSorting = async (value) => {
-    const response = await sortProducts(value)
+    let tempSort = value === "aesc" ? "desc" : "aesc"
+    setSorting(tempSort);
+    const response = await sortProducts(tempSort)
     dispatch(setProducts(response.data))
   }
   return (
       <div className='ui grid container'>
         <div>
-          <button  class='ui secondary basic button mb-2' onClick={()=>handleSorting("aesc")}>Asc</button>
-          <button  class='ui secondary basic button mb-2' onClick={()=>handleSorting("desc")}>Desc</button>
+          <button  className='ui secondary basic button mb-2' onClick={()=>handleSorting(sort)}>{sort}</button>
         </div>
         <div className='ui grid'>
           <ProductComponent />
