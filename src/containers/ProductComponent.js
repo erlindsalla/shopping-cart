@@ -14,7 +14,7 @@ const ProductComponent = () => {
     return (
       <div className='four wide column' key={id}>
         <button
-          class='ui secondary basic button mb-2'
+          className='ui secondary basic button mb-2'
           onClick={() => deleteProduct(id)}
         >
           delete

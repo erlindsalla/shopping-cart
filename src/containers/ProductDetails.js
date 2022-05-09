@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   selectedProduct,
   removeSelectedProduct,
-  addProductToCart,
 } from '../redux/actions/productsActions'
+import { addProductToCart } from "../redux/actions/cartActions"
 import { getProductDetailsById } from '../sevices/store.service'
 const ProductDetails = () => {
   const { productId } = useParams()

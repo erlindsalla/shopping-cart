@@ -25,10 +25,3 @@ export const removeProductFromList = (id) => {
     payload: id,
   }
 }
-
-export const addProductToCart = (product) => {
-  return {
-    type: ActionTypes.ADD_PRODUCT_TO_CART,
-    payload: product,
-  }
-}
